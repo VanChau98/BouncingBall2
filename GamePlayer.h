@@ -6,6 +6,7 @@
 #include <list>
 #include "Player2.h"
 #include "Threat.h"
+#include "LuckyBall.h"
 #include "Ball.h"
 class GamePlayer
 {
@@ -18,13 +19,17 @@ private:
 
 	sf::Font			m_font;
 	sf::Text			m_text;
+
+	std::list<LuckyBall>m_luckyBall;
+	sf::Time			m_time;
+	sf::Clock			m_clock;
 	
 public:
 	GamePlayer(sf::RenderWindow *window);
 	bool update();
 	void draw();
 	void RenderBallScore();
-	void DrawBallScore();
+	void DrawBallLine();
 };
 
 #endif

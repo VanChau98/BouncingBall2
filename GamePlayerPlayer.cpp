@@ -23,12 +23,16 @@ bool game::update()
 	if (y1 <= 65 && x1 <= 20)
 	{
 		this->m_ball->update(70, 1150, 25, 525);
-		this->m_ball->setSpeed(this->m_ball->getSpeed() + this->m_ball->getSpeed()*0.1);
+		if(this->m_ball->getSpeed()<0.1f)
+			this->m_ball->setSpeed(this->m_ball->getSpeed() + this->m_ball->getSpeed()*0.1);
+		else  this->m_ball->setSpeed(0.1f);
 	}
 	if (y2 <= 65 && x2 <= 20)
 	{
 		this->m_ball->update(50, 1130, 25, 525);
-		this->m_ball->setSpeed(this->m_ball->getSpeed() + this->m_ball->getSpeed()*0.1);
+		if(this->m_ball->getSpeed()<0.5f)
+			this->m_ball->setSpeed(this->m_ball->getSpeed() + this->m_ball->getSpeed()*0.1);
+		else this->m_ball->setSpeed(0.5f);
 	}
 
 	//Xử lý kết thúc game
