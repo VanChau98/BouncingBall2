@@ -21,9 +21,9 @@ void ball::update(int left, int right, int top, int bottom)
 {
 	this->velocity = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
-	const sf::Time update_ms = sf::seconds(this->speed);
+	//const sf::Time update_ms = sf::seconds(this->speed);
 	const auto pos = this->m_ball.getPosition();
-	const auto delta = update_ms.asSeconds() * this->velocity;
+	const auto delta = this->speed * this->velocity;
 	sf::Vector2f new_pos(pos.x + this->direction.x * delta, pos.y + this->direction.y * delta);
 
 	if (new_pos.x - this->radius < left) { // left window edge

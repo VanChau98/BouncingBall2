@@ -32,16 +32,10 @@ Computer::Computer(sf::RenderWindow *window)
 void Computer::update(sf::Vector2f pos)
 {
 	sf::Vector2f bat_postition = this->m_bat.getPosition();
-	if (bat_postition.y<=pos.y)
-		while (bat_postition.y!=pos.y)
-		{
-			bat_postition.y += 1;
-		}
-	if (bat_postition.y>=pos.y)
-		while (bat_postition.y != pos.y)
-		{
-			bat_postition.y -= 1;
-		}
+	if (bat_postition.y <= pos.y&&pos.x>=575)
+		bat_postition.y += 10;
+	if (bat_postition.y >= pos.y&&pos.x >= 575)
+		bat_postition.y -= 10;
 	if (bat_postition.y <= 75)
 		bat_postition.y = 75;
 	if (bat_postition.y >= 475)

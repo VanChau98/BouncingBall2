@@ -9,7 +9,7 @@ private:
 	float			radius;
 	sf::Color		m_color;
 public:
-	LuckyBall(sf::RenderWindow *window, sf::Color);
+	LuckyBall(sf::RenderWindow *window, sf::Color, float, float);
 	void update();
 	void draw();
 	sf::Vector2f getPosition();

@@ -26,10 +26,18 @@ bool GamePC::update()
 	int y1 = std::abs(this->m_ball->getPosition().y - this->m_player->getPosition().y);
 	int y2 = std::abs(this->m_ball->getPosition().y - this->m_computer->getPosition().y);
 
-	if (y1 <= 65 && x1 <= 20)
+	if (y1 <= 65 && x1 <= 20) {
 		this->m_ball->update(70, 1150, 25, 525);
-	if (y2 <= 65 && x2 <= 20)
+		if (this->m_ball->getSpeed() < 0.1f)
+			this->m_ball->setSpeed(this->m_ball->getSpeed() + this->m_ball->getSpeed()*0.1);
+		else  this->m_ball->setSpeed(0.1f);
+	}
+	if (y2 <= 65 && x2 <= 20) {
 		this->m_ball->update(50, 1130, 25, 525);
+		if (this->m_ball->getSpeed() < 0.1f)
+			this->m_ball->setSpeed(this->m_ball->getSpeed() + this->m_ball->getSpeed()*0.1);
+		else  this->m_ball->setSpeed(0.1f);
+	}
 
 	//Xử lý kết thúc game
 	int a = this->m_ball->getPosition().x - this->m_ball->getRadius();
@@ -48,12 +56,12 @@ bool GamePC::update()
 		return true;
 	else {
 		if (this->m_computer->getCountHeart() < 0) {
-			if (MessageBox(NULL, "PLAYER I WIN!", "Game Over", MB_OKCANCEL) == IDOK)
+			if (MessageBox(NULL, "PLAYER WIN!", "Game Over", MB_OKCANCEL) == IDOK)
 				return false;
 			else return false;
 		}
 		if (this->m_player->getCountHeart() < 0) {
-			if (MessageBox(NULL, "PLAYER II WIN!", "Game Over", MB_OKCANCEL) == IDOK)
+			if (MessageBox(NULL, "COMPUTER WIN!", "Game Over", MB_OKCANCEL) == IDOK)
 				return false;
 			else return false;
 

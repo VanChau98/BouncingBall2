@@ -2,7 +2,7 @@
 
 
 
-LuckyBall::LuckyBall(sf::RenderWindow *window, sf::Color color)
+LuckyBall::LuckyBall(sf::RenderWindow *window, sf::Color color, float x, float y)
 {
 	this->m_window = window;
 	this->radius = 15;
@@ -12,9 +12,13 @@ LuckyBall::LuckyBall(sf::RenderWindow *window, sf::Color color)
 	this->m_ball.setFillColor(this->m_color);
 	this->m_ball.setOrigin(this->m_ball.getRadius(), this->m_ball.getRadius());
 
-	std::srand(time(NULL));
-	float x = std::rand() % 470 + 50;
-	float y = std::rand() % 400 + 50;
+	/*std::srand(time(NULL));
+	float a;
+	float b;
+	do {
+		a = std::rand() % 450 + 50;
+		b = std::rand() % 350 + 50;
+	} while (abs(a - x) <= 30 && abs(b - y) <= 30);*/
 	this->m_ball.setPosition(x, y);
 }
 
